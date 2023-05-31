@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 :root
 {
     --primary-grey:  #B2BEB5;
     --primary-blue: #7393B3;
     --primary-white: #FFFFF0;
-    --primary-border: 2px solid black
+    --primary-border: 4px solid black
 }
 
 * {
     /* outline: dashed; */
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -23,19 +27,26 @@ body {
    display: grid;
    grid-template-rows: 1fr 1fr 1fr 1fr;
    grid-template-columns: 1fr 1fr 1fr 1fr;
-   gap: 10px 0px;
+   gap: 15px 15px;
    place-items: center;
    margin-bottom: 20px;;
+   
 }
 .btn{
-    width: 80px;
-    height: 80px;
+    width: 95px;
+    height: 95px;
     font-size: 1.5rem;
     border-radius: 10px;
     border: var(--primary-border);
     background: #FFFFF0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover {
+opacity: 80%
 }
 .clear-delete-container{
+    width: 420px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -49,24 +60,30 @@ body {
 #clear-btn, #delete-btn {
      width: 250px;
      border-radius: 10px;
+     border: var(--primary-border);
 }
 
 #calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 5%;
-    width: 400px;
+    width: 450px;
     height: auto;
     background-color: var(--primary-blue);
     padding: 15px;
     border-radius: 20px;
     border: var(--primary-border);
+    
    
 
 }
 
 
 .display-container{
-    height: 120px;
-    width:auto;
+    height: auto;
+    width:420px;
     background: lightcoral;
     margin: 20px 0px;
     border: var(--primary-border);
@@ -82,9 +99,15 @@ height: 50%;
 /* text-align: right; */
 align-self: flex-end;
 padding-right: 20px;
-font-size: 1.5rem;
 
 }
 #display-result{
-    padding-top: 50px
+    padding-top: 10px;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+#display-operation {
+    margin-top: 15px;
+    font-size: 2rem
 }
