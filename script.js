@@ -47,8 +47,8 @@ decimalBtn.onclick = function(){
 }
 // divide Button
 operatorBtn[0].onclick = function(){
-    changeBackground(operatorBtn[1])
-    evaluate("÷", divide)
+    changeBackground(operatorBtn[0])
+    evaluate("÷", divide())
 }
 // Multiply Button
 operatorBtn[1].onclick = function(){
@@ -88,7 +88,7 @@ operatorBtn[4].onclick = function(){
 function operate(){
     let total = 0;
     let contentArr = (displayOperation.textContent).split("")
-    symbol = contentArr.find(num => num == "+" || num === "-" || num === "*" || num === "/")
+    symbol = contentArr.find(num => num == "+" || num === "-" || num === "x" || num === "÷")
     contentArr = (displayOperation.textContent).split(symbol)
     firstNum = parseFloat(contentArr[0])
     secondNum = parseFloat(displayResult.textContent)
@@ -99,7 +99,7 @@ function operate(){
         total = subtract(firstNum, secondNum)
     }else if(symbol == "÷"){
         total = divide(firstNum, secondNum)
-    } else if( symbol = "x"){
+    } else if( symbol == "x"){
         total = multiply(firstNum, secondNum)
     }
     console.log("Total: ", total)
@@ -115,9 +115,9 @@ function evaluate(symbol, operation){
         operation = function s(num1, num2){ return add(num1, num2)}
     } else if(symbol == "-"){
         operation = function s(num1, num2){ return subtract(num1, num2)}
-    } else if(symbol == "*"){
+    } else if(symbol == "÷"){
         operation = function s(num1, num2){ return multiply(num1, num2)}
-    } else if(symbol == "/"){
+    } else if(symbol == "x"){
         operation = function s(num1, num2){ return divide(num1, num2)}
     }
 
@@ -196,12 +196,12 @@ function subtract(num1, num2){
 }
 
 function divide(num1, num2){
-    let total = num1 / num2;
+    let total = parseFloat(num1) / parseFloat(num2);
     return total
 }
 
 function multiply(num1, num2){
-    let total = num1* num2 ;
+    let total = parseFloat(num1) * parseFloat(num2);
     return total
 }
 
