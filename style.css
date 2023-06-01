@@ -87,7 +87,7 @@ opacity: 80%
 
 
 .display-container{
-    height: 150px;
+    min-height: 150px;
     width:340px;
     background: lightcoral;
     margin: 20px 0px;
@@ -100,21 +100,30 @@ opacity: 80%
 }
 #display-operation, #display-result {
 /* outline: dashed; */
-height: 50%;
+min-height: 50%;
 /* text-align: right; */
 align-self: flex-end;
 padding-right: 20px;
+padding-left: 20px
 
 }
 #display-result{
     padding-top: 10px;
     font-size: 3rem;
     margin-bottom: 15px;
+    max-width: 300px;
+    
+    overflow-wrap: break-word;
+    
 }
 
 #display-operation {
     margin-top: 15px;
-    font-size: 2rem
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    /* overflow-wrap: break-word; */
+    
+    overflow-wrap: anywhere;
 }
 
 footer {

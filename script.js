@@ -6,7 +6,19 @@ let clearBtn = document.querySelector("#clear-btn")
 let deleteBtn = document.querySelector("#delete-btn")
 let decimalBtn = document.querySelector("#decimal")
 let numberArr = [0, 1, 2, 3,4,5,6,7,8,"9"]
-console.log(operatorBtn)
+function shrinkText(){
+    let displayResultInfo = displayResult.getBoundingClientRect();
+    let displayOperationInfo = displayOperation.getBoundingClientRect();
+
+    if(displayResultInfo.width > 300){
+        displayResult.style.fontSize = "1.5rem"
+    }
+
+    if(displayOperationInfo.width > 300){
+        displayOperation.style.fontSize = "1rem"
+    }
+}
+
 for(let i = 0; i < numberBtn.length; i++){
     //displayResult.textContent = ""
     numberBtn[i].onclick = function(){
@@ -20,13 +32,13 @@ for(let i = 0; i < numberBtn.length; i++){
             console.log("it is true, it has a symbol ending ")
               
         } 
-        if(displayResult.textContent == 0){
+         if(displayResult.textContent == "0"){
             displayResult.textContent = attr  
-          //displayOperation.textContent += attr 
+        //   //displayOperation.textContent += attr 
         }else{
+          
             displayResult.textContent += attr 
-            //displayOperation.textContent += attr 
-        }
+       }
         
     }
     
@@ -72,9 +84,11 @@ operatorBtn[3].onclick = function(){
     if(content[lastIndex-1] !== "=" && displayResult.textContent !==  ""  ){
         displayOperation.textContent += displayResult.textContent + "="
         displayResult.textContent = operate()
+       // shrinkText()
     }
     
     changeBackground(operatorBtn[3])
+    
     }
 
 operatorBtn[4].onclick = function(){
@@ -106,7 +120,22 @@ function operate(){
     //displayResult.textContent = total;
     contentArr.length = 0;
     //console.log("secondARR", contentArr)
-    return total
+    total = String(total);
+    
+    if(!total.includes(".")){
+        return total
+    }else{   
+    let splitByDecimal = total.split(".")
+    console.log("splitbydecimal",splitByDecimal)
+    if(splitByDecimal[1].length <= 3){
+        return parseFloat(total)
+        
+    }else if(splitByDecimal[1].length > 3){
+        return parseFloat(total).toFixed(3)
+    }  
+    }
+    
+    
 }
 
 
