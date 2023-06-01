@@ -6,7 +6,7 @@
     --primary-grey:  #B2BEB5;
     --primary-blue: #7393B3;
     --primary-white: #FFFFF0;
-    --primary-border: 4px solid black
+    --primary-border: 3px solid black
 }
 
 * {
@@ -20,6 +20,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
 }
 .operation-btn{
 
@@ -33,8 +35,8 @@ body {
    
 }
 .btn{
-    width: 95px;
-    height: 95px;
+    width: 65px;
+    height: 60px;
     font-size: 1.5rem;
     border-radius: 10px;
     border: var(--primary-border);
@@ -46,7 +48,7 @@ body {
 opacity: 80%
 }
 .clear-delete-container{
-    width: 420px;
+    width: 340px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -69,12 +71,15 @@ opacity: 80%
     justify-content: center;
     align-items: center;
     margin-top: 5%;
-    width: 450px;
+    width: 360px;
     height: auto;
     background-color: var(--primary-blue);
     padding: 15px;
     border-radius: 20px;
     border: var(--primary-border);
+    margin-bottom: 150px;
+    margin-top: 40px
+    
     
    
 
@@ -82,8 +87,8 @@ opacity: 80%
 
 
 .display-container{
-    height: auto;
-    width:420px;
+    height: 150px;
+    width:340px;
     background: lightcoral;
     margin: 20px 0px;
     border: var(--primary-border);
@@ -110,4 +115,58 @@ padding-right: 20px;
 #display-operation {
     margin-top: 15px;
     font-size: 2rem
+}
+
+footer {
+    position: fixed;
+  bottom: 0;
+  
+    
+    font-size: 1.1rem;
+    
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 7px
+}
+
+i{
+    font-size: 2.1rem;
+}
+@media screen and (max-width: 480px) {
+
+    :root {
+        --primary-border: 2px solid black
+    }
+    #calculator {
+        
+        max-width: 300px
+    }
+    .display-container, .clear-delete-container{
+        max-width: 280px;
+    }
+    .display-container{
+        height: 100px;
+    }
+    
+
+    .btn{
+        height: 60px;
+        width: 60px
+    }
+
+    #display-result{
+        font-size: 1.8rem;
+        margin-bottom: 3px;
+    }
+
+    #display-operation{
+        font-size: 1.2rem;
+    }
+    footer{
+        font-size: 1rem;
+    }
+    i{
+        font-size: 1.5rem;
+    }
 }
