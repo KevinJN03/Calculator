@@ -255,7 +255,7 @@ function deleteResult(){
    //console.log("Delete:", arr)
     arrPop = arr.pop()
   displayResult.textContent = arr.join("")
-  displayOperation.textContent = ""
+  //displayOperation.textContent = ""
  
    
 
